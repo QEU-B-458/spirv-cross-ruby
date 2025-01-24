@@ -13,7 +13,7 @@ end
 chdir File.expand_path('spirv-cross', __dir__) do
   sh 'git', 'fetch'
   sh 'git', 'checkout', REVISION
-  sh 'make'
+  sh 'make CFLAGS+=-fPIC CXXFLAGS+=-fPIC'
 end
 
 $CFLAGS << ' -I' << File.expand_path('spirv-cross', __dir__)
